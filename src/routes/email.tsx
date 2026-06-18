@@ -1,4 +1,5 @@
-import { createFileRoute, useServerFn } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { generateEmail } from "@/lib/ai.functions";
 import { PageShell, ResultCard, AiDisclaimer } from "@/components/page-shell";
@@ -16,9 +17,6 @@ import {
 import { toast } from "sonner";
 import { Loader2, Sparkles } from "lucide-react";
 
-// @tanstack/react-start exports useServerFn — re-export shim
-import { useServerFn as useSFn } from "@tanstack/react-start";
-
 export const Route = createFileRoute("/email")({
   head: () => ({
     meta: [
@@ -30,7 +28,7 @@ export const Route = createFileRoute("/email")({
 });
 
 function EmailPage() {
-  const run = useSFn(generateEmail);
+  const run = useServerFn(generateEmail);
   const [recipient, setRecipient] = useState("");
   const [purpose, setPurpose] = useState("");
   const [tone, setTone] = useState<"professional" | "friendly" | "concise" | "persuasive" | "apologetic">("professional");
