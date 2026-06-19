@@ -10,6 +10,12 @@ import {
   Coffee,
   ArrowUpRight,
   Phone,
+  Sparkles,
+  Bot,
+  MessageSquare,
+  FileText,
+  FileCheck,
+  Search,
 } from "lucide-react";
 import portrait from "@/assets/portrait-collage.jpg";
 
