@@ -3,6 +3,7 @@ import {
   Mail,
   MapPin,
   Linkedin,
+  Github,
   Calendar,
   ClipboardList,
   Users,
