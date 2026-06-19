@@ -96,6 +96,9 @@ function Nav() {
         <a href="#work" className="rounded-full px-3 py-1.5 hover:bg-secondary">
           Work
         </a>
+        <a href="#ai-tools" className="rounded-full px-3 py-1.5 hover:bg-secondary font-medium text-amber-800">
+          AI Tools
+        </a>
         <a href="#experience" className="rounded-full px-3 py-1.5 hover:bg-secondary">
           Experience
         </a>
