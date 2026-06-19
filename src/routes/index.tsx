@@ -10,6 +10,12 @@ import {
   Coffee,
   ArrowUpRight,
   Phone,
+  Sparkles,
+  Bot,
+  MessageSquare,
+  FileText,
+  FileCheck,
+  Search,
 } from "lucide-react";
 import portrait from "@/assets/portrait-collage.jpg";
 
@@ -68,6 +74,7 @@ function Portfolio() {
       <Nav />
       <Hero />
       <Bento />
+      <AITools />
       <Experience />
       <Contact />
       <Footer />
@@ -89,6 +96,9 @@ function Nav() {
       <div className="flex items-center gap-1 text-sm">
         <a href="#work" className="rounded-full px-3 py-1.5 hover:bg-secondary">
           Work
+        </a>
+        <a href="#ai-tools" className="rounded-full px-3 py-1.5 hover:bg-secondary font-medium text-amber-800">
+          AI Tools
         </a>
         <a href="#experience" className="rounded-full px-3 py-1.5 hover:bg-secondary">
           Experience
@@ -321,6 +331,98 @@ function Contact() {
             </span>
             <ArrowUpRight className="h-4 w-4 opacity-70" />
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AITools() {
+  const tools = [
+    {
+      title: "AI Workplace Copilot",
+      desc: "An intelligent, context-aware chatbot for quick answers, drafts, and virtual coordination.",
+      icon: Bot,
+      link: "/chat",
+      action: "Chat Now",
+      color: "bg-[#fcfaf7] hover:bg-amber-50/50 border-amber-100/60",
+    },
+    {
+      title: "Smart Email Generator",
+      desc: "Drafts hyper-professional emails, replies, and inbox triages in seconds with structured prompts.",
+      icon: FileText,
+      link: "/email",
+      action: "Draft Email",
+      color: "bg-[#fcfaf7] hover:bg-amber-50/50 border-amber-100/60",
+    },
+    {
+      title: "Meeting Summarizer",
+      desc: "Converts messy transcriptions, recordings, or notes into structured meeting minutes and action items.",
+      icon: FileCheck,
+      link: "/meetings",
+      action: "Summarize",
+      color: "bg-[#fcfaf7] hover:bg-amber-50/50 border-amber-100/60",
+    },
+    {
+      title: "AI Task Planner",
+      desc: "Breaks complex operations down into actionable step-by-step administrative and project tasks.",
+      icon: ClipboardList,
+      link: "/tasks",
+      action: "Plan Tasks",
+      color: "bg-[#fcfaf7] hover:bg-amber-50/50 border-amber-100/60",
+    },
+    {
+      title: "AI Research Assistant",
+      desc: "Performs quick deep-dives, gathers structured intelligence, and synthesizes reports.",
+      icon: Search,
+      link: "/research",
+      action: "Research",
+      color: "bg-[#fcfaf7] hover:bg-amber-50/50 border-amber-100/60",
+    },
+  ];
+
+  return (
+    <section id="ai-tools" className="mb-14 scroll-mt-6">
+      <div className="mb-8 rounded-3xl border border-[#e5dfd5] bg-[#f5efe4]/40 p-8 shadow-[var(--shadow-soft)] sm:p-12">
+        <div className="max-w-3xl">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#f0ebe3] px-3.5 py-1 text-xs font-semibold text-amber-900 border border-[#e5dfd5]">
+            <Sparkles className="h-3.5 w-3.5 text-amber-700 animate-pulse" />
+            Next-Gen Administrative Toolkit
+          </div>
+          <h2 className="font-display text-3xl uppercase tracking-tight text-foreground sm:text-5xl">
+            My Custom AI Workspace
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-foreground/80 sm:text-lg">
+            To showcase how I bring cutting-edge productivity into daily operations, I built these bespoke, fully-functional AI workplace tools. Experience firsthand how I automate high-level executive support tasks:
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <div
+                key={tool.title}
+                className={`flex flex-col justify-between rounded-2xl border p-6 transition-all duration-300 hover:shadow-[var(--shadow-elegant)] hover:-translate-y-0.5 ${tool.color}`}
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-background border shadow-sm">
+                    <Icon className="h-6 w-6 text-foreground" />
+                  </div>
+                  <h3 className="font-display text-lg uppercase tracking-wide">{tool.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tool.desc}</p>
+                </div>
+                <div className="mt-6 pt-4">
+                  <a
+                    href={tool.link}
+                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-foreground px-4 py-2.5 text-center text-xs font-semibold text-background hover:bg-foreground/90 transition-colors"
+                  >
+                    {tool.action} <ArrowUpRight className="h-3 w-3" />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
