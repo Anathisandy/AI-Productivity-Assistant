@@ -11,8 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -80,22 +78,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aria — AI Workplace Productivity Assistant" },
-      { name: "description", content: "Automate workplace tasks with AI: smart emails, meeting summaries, task plans, research briefs, and an AI chatbot." },
-      { property: "og:title", content: "Aria — AI Workplace Productivity Assistant" },
-      { property: "og:description", content: "Automate workplace tasks with AI: smart emails, meeting summaries, task plans, research briefs, and an AI chatbot." },
+      { title: "Anathi Sandy Gatyeni — Administrative Assistant & Office Coordinator" },
+      { name: "description", content: "Portfolio of Anathi Sandy Gatyeni, an administrative assistant and office coordinator based in Cape Town, South Africa." },
+      { property: "og:title", content: "Anathi Sandy Gatyeni — Administrative Assistant" },
+      { property: "og:description", content: "Administrative assistant, office coordinator, and virtual assistant based in Cape Town." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Aria — AI Workplace Productivity Assistant" },
-      { name: "twitter:description", content: "Automate workplace tasks with AI: smart emails, meeting summaries, task plans, research briefs, and an AI chatbot." },
+      { name: "twitter:title", content: "Anathi Sandy Gatyeni — Administrative Assistant" },
+      { name: "twitter:description", content: "Administrative assistant, office coordinator, and virtual assistant based in Cape Town." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f76ed23c-753a-4a20-852a-a755f5d00d60/id-preview-e301998d--04c86d4c-44e8-4474-bc25-da9b87110526.lovable.app-1781790376409.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f76ed23c-753a-4a20-852a-a755f5d00d60/id-preview-e301998d--04c86d4c-44e8-4474-bc25-da9b87110526.lovable.app-1781790376409.png" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@300;400;500;600;700&display=swap",
       },
     ],
   }),
@@ -124,23 +125,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SidebarProvider>
-        <div className="flex min-h-screen w-full bg-background">
-          <AppSidebar />
-          <div className="flex min-w-0 flex-1 flex-col">
-            <header className="sticky top-0 z-10 flex h-14 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur">
-              <SidebarTrigger />
-              <div className="text-sm font-medium text-muted-foreground">
-                AI Workplace Productivity
-              </div>
-            </header>
-            <main className="flex-1">
-              <Outlet />
-            </main>
-          </div>
-        </div>
-        <Toaster />
-      </SidebarProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Outlet />
+      </div>
+      <Toaster />
     </QueryClientProvider>
   );
 }
