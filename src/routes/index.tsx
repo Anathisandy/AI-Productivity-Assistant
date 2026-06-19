@@ -3,6 +3,7 @@ import {
   Mail,
   MapPin,
   Linkedin,
+  Github,
   Calendar,
   ClipboardList,
   Users,
@@ -328,6 +329,17 @@ function Contact() {
           >
             <span className="flex items-center gap-3">
               <Linkedin className="h-4 w-4" /> LinkedIn
+            </span>
+            <ArrowUpRight className="h-4 w-4 opacity-70" />
+          </a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between gap-3 rounded-xl bg-background/10 px-4 py-3 hover:bg-background/15"
+          >
+            <span className="flex items-center gap-3">
+              <Github className="h-4 w-4" /> GitHub
             </span>
             <ArrowUpRight className="h-4 w-4 opacity-70" />
           </a>
