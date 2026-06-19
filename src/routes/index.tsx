@@ -74,6 +74,7 @@ function Portfolio() {
       <Nav />
       <Hero />
       <Bento />
+      <AITools />
       <Experience />
       <Contact />
       <Footer />
